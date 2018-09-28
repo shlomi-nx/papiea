@@ -1,0 +1,23 @@
+swagger: "2.0"
+definitions:
+  metadata:
+    required:
+      - id
+      - kind
+    properties:
+      kind:
+        type: string
+      id:
+        type: string
+      creation_time:
+        type: date
+      deletion_time:
+        type: date
+      annotation:
+        type: string
+      metadata:
+        type: object
+      is_spec_disabled:
+        type: boolean
+        
+      

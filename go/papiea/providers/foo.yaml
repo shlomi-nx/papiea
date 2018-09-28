@@ -1,0 +1,15 @@
+swagger: "2.0"
+definitions:
+  Foo:
+    x-ntnx-entity: true     # Marks this as an entity to the entity-engine
+    x-ntnx-sync: true       # Marks the CUD operations as tasked operations
+    x-ntnx-spec-only: false # Marks that this entity has no status at all, meaning no operations. This is a simple record entity
+    properties:
+      name:
+        type: string
+      size:
+        x-ntnx-status-only: true  
+        type: int
+      secret:
+        type: string
+        x-ntnx-write-only: true

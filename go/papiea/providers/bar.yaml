@@ -1,0 +1,46 @@
+Entity:
+  Bar:
+    x-ntnx-entity: true     # Marks this as an entity to the entity-engine
+    x-ntnx-sync: true       # Marks the CUD operations as tasked operations
+    x-ntnx-spec-only: true  # Marks that this entity has no status at all, meaning no operations. This is a simple record entity
+    properties:
+      name:
+        type: string
+      size:
+        type: int
+      size_on_disk:
+        type: int
+        x-ntnx-status-only: true  
+      secret:
+        type: string
+        x-ntnx-write-only: true
+
+Procedures:
+  Bar:
+    scrub:
+      Summary:
+        Description:
+      in: ...
+      out: ...
+     
+  # rbac:
+  #   rename: ["{mid}.name"]
+  #   resize: ["{mid}.size"]
+  #   
+  # functions:
+  #   Bar:
+  #     v1:
+  #       x-ntnx-dispatch: [serial/parallel, fail-first/fail-continue, etc..]
+  #       x-ntnx-custom-dispatch: custom_dispatcher 
+  #       create_bar:
+  #         x-ntnx-provider-signature: ["+{mid}"]
+  #       rename_bar:
+  #         x-ntnx-provider-rbac: true
+  #         x-ntnx-provider-signature: ["{mid}.name"]
+  #       resize_bar:
+  #         x-ntnx-provider-signature: ["{mid}.size"]
+  #       scrub_file:
+  #         x-ntnx-provider-procedural: true
+  #         request:
+  #         repsonse:
+            

@@ -29,18 +29,21 @@ func rename_bar(c ctx, m const metadata, spec const spec, status status) status,
 }
 
 // provider is handling rbac
-func resize_bar(c ctx, m const metadata, sp const spec, status status) status,err {
+func resize_bar(ctx context, m const metadata, sp const spec, status status) {
 	err = nil
 	if (c.user == "Aaron") {
-		return status, "Aaron is not allowed to rename"
+		Papiea.fail(ctx, "Aaron is not allowed to rename");
+		return;
 	}
+	Papiea.setProgress(ctx, 50);
 	if (proper(size)) {
 		status.size = e.spec.size;
+		Papiea.set_status(ctx, status);
 	} else {
-		err = "cant resize"
+		Papiea.fail(ctx, "cant resize");
 	}
 
-	return status, err;
+	return;
 }
 
 
